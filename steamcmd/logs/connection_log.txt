@@ -1,0 +1,63 @@
+
+
+[2025-02-15 09:12:37] Client version: 1738027521
+[2025-02-15 09:12:37] Connectivity test: Starting test, fetching 'http://test.steampowered.com/204'
+[2025-02-15 09:12:37] [Logged Off, 0, 0] [U:1:0] CCMInterface::SetSteamID( [U:1:0] )
+[2025-02-15 09:12:37] Clearing in-memory token - 1 (OK): SetLoginInformation
+[2025-02-15 09:12:37] [Logged Off, 0, 0] [a:1:0] CCMInterface::SetSteamID( [a:1:0] )
+[2025-02-15 09:12:37] [Logged Off, 0, 0] [a:1:0] CCMInterface::SetSteamID( [a:1:0] )
+[2025-02-15 09:12:37] [Logged Off, 4, 0] [a:1:0] LogOn() called; not connected yet, scheduling connection. Schedule init returned 1
+[2025-02-15 09:12:37] CCMInterface::YieldingConnect -- calling ISteamDirectory/GetCMListForConnect/?cellid=0&qoslevel=3
+[2025-02-15 09:12:37] Connectivity test (23.212.6.240:80 (23.212.6.240:80)): OK!
+[2025-02-15 09:12:37] Connectivity test: result=Connected (since 0.0s ago), prev=Unknown, in progress=0
+[2025-02-15 09:12:38] IPv6 HTTP connectivity test (ipv6check-http.steamserver.net / [2602:801:f002:101::a2fe:c00b]:80 ([2602:801:f002:101::a2fe:c00b]:80)) - SUCCESS
+[2025-02-15 09:12:38] IPv6 HTTP connectivity test (ipv6check-http.steamserver.net / [2602:801:f002:101::a2fe:c00b]:80 ([2602:801:f002:101::a2fe:c00b]:80)) - server indicated we are using ipv6, external address = '2600:1015:a032:2459:390c:7eaa:edb8:cb1e'
+[2025-02-15 09:12:38] IPv6 UDP connectivity test (ipv6check-udp.steamserver.net / [2602:801:f007:100::a2fe:c104]:27019) - SUCCESS
+[2025-02-15 09:12:38] GetCMListForConnect -- got 15 Netfilter CMs and 345 WebSocket CMs
+[2025-02-15 09:12:38] GetCMListForConnect -- DC 'hkg1' count: 34
+[2025-02-15 09:12:38] GetCMListForConnect -- DC 'tyo3' count: 33
+[2025-02-15 09:12:38] GetCMListForConnect -- DC 'sgp1' count: 33
+[2025-02-15 09:12:38] GetCMListForConnect -- DC 'lax1' count: 31
+[2025-02-15 09:12:38] GetCMListForConnect -- DC 'sea1' count: 30
+[2025-02-15 09:12:38] GetCMListForConnect -- DC 'dfw1' count: 31
+[2025-02-15 09:12:38] GetCMListForConnect -- DC 'ord1' count: 30
+[2025-02-15 09:12:38] GetCMListForConnect -- DC 'iad1' count: 32
+[2025-02-15 09:12:38] GetCMListForConnect -- DC 'atl3' count: 31
+[2025-02-15 09:12:38] GetCMListForConnect -- DC 'maa2' count: 32
+[2025-02-15 09:12:38] GetCMListForConnect -- DC 'syd1' count: 32
+[2025-02-15 09:12:38] GetCMListForConnect -- DC 'bom2' count: 11
+[2025-02-15 09:12:38] [Connecting, 4, 0] [a:1:0] CM Directory list says 100% of connections should be websockets, we rolled 74 - using WebSockets as default.
+[2025-02-15 09:12:38] [Connecting, 4, 0] [a:1:0] PingWebSocketCM() (cmp3-hkg1.steamserver.net:27018) starting...
+[2025-02-15 09:12:38] [Connecting, 4, 0] [a:1:0] PingWebSocketCM() (cmp3-hkg1.steamserver.net:27019) starting...
+[2025-02-15 09:12:38] [Connecting, 4, 0] [a:1:0] PingWebSocketCM() (cmp2-tyo3.steamserver.net:27020) starting...
+[2025-02-15 09:12:38] [Connecting, 4, 0] [a:1:0] PingWebSocketCM() (cmp1-tyo3.steamserver.net:27020) starting...
+[2025-02-15 09:12:39] [Connecting, 4, 0] [a:1:0] PingWebSocketCM() (cmp1-tyo3.steamserver.net:27020) results: 279.6537ms + load 32.0000
+[2025-02-15 09:12:39] [Connecting, 4, 0] [a:1:0] PingWebSocketCM() (cmp3-hkg1.steamserver.net:443) starting...
+[2025-02-15 09:12:39] [Connecting, 4, 0] [a:1:0] PingWebSocketCM() (cmp2-tyo3.steamserver.net:27020) results: 259.2343ms + load 30.0000
+[2025-02-15 09:12:39] [Connecting, 4, 0] [a:1:0] PingWebSocketCM() (cmp2-tyo3.steamserver.net:443) starting...
+[2025-02-15 09:12:39] [Connecting, 4, 0] [a:1:0] PingWebSocketCM() (cmp3-hkg1.steamserver.net:27019) results: 239.2220ms + load 46.0000
+[2025-02-15 09:12:39] [Connecting, 4, 0] [a:1:0] PingWebSocketCM() (cmp1-sgp1.steamserver.net:27018) starting...
+[2025-02-15 09:12:39] [Connecting, 4, 0] [a:1:0] PingWebSocketCM() (cmp3-hkg1.steamserver.net:27018) results: 285.1729ms + load 53.0000
+[2025-02-15 09:12:39] [Connecting, 4, 0] [a:1:0] PingWebSocketCM() (cmp1-sgp1.steamserver.net:27019) starting...
+[2025-02-15 09:12:39] [Connecting, 4, 0] [a:1:0] PingWebSocketCM() (cmp2-tyo3.steamserver.net:443) results: 341.6574ms + load 38.0000
+[2025-02-15 09:12:39] [Connecting, 4, 0] [a:1:0] PingWebSocketCM() (cmp1-sgp1.steamserver.net:443) starting...
+[2025-02-15 09:12:39] [Connecting, 4, 0] [a:1:0] PingWebSocketCM() (cmp3-hkg1.steamserver.net:443) results: 312.2790ms + load 73.0000
+[2025-02-15 09:12:39] [Connecting, 4, 0] [a:1:0] PingWebSocketCM() (cmp1-lax1.steamserver.net:443) starting...
+[2025-02-15 09:12:40] [Connecting, 4, 0] [a:1:0] PingWebSocketCM() (cmp1-sgp1.steamserver.net:27018) failed talking to cm (timeout/neterror - Invalid)
+[2025-02-15 09:12:40] [Connecting, 4, 0] [a:1:0] PingWebSocketCM() (cmp2-atl3.steamserver.net:443) starting...
+[2025-02-15 09:12:40] [Connecting, 4, 0] [a:1:0] PingWebSocketCM() (cmp1-sgp1.steamserver.net:27019) failed talking to cm (timeout/neterror - Invalid)
+[2025-02-15 09:12:40] [Connecting, 4, 0] [a:1:0] PingWebSocketCM() (cmp2-lax1.steamserver.net:27018) starting...
+[2025-02-15 09:12:40] [Connecting, 4, 0] [a:1:0] PingWebSocketCM() (cmp1-lax1.steamserver.net:443) results: 159.2140ms + load 7.0000
+[2025-02-15 09:12:40] [Connecting, 4, 0] [a:1:0] PingWebSocketCM() (cmp2-atl3.steamserver.net:443) results: 68.4464ms + load 19.0000
+[2025-02-15 09:12:40] [Connecting, 4, 0] [a:1:0] PingWebSocketCM() (cmp2-lax1.steamserver.net:27018) results: 108.5057ms + load 8.0000
+[2025-02-15 09:12:40] [Connecting, 4, 0] [a:1:0] PingWebSocketCM() (cmp1-sgp1.steamserver.net:443) failed talking to cm (timeout/neterror - Invalid)
+[2025-02-15 09:12:40] [Connecting, 4, 3] [a:1:0] Connect() starting connection (eNetQOSLevelHigh, cmp2-atl3.steamserver.net:443, WebSocket)
+[2025-02-15 09:12:41] [Connecting, 4, 3] [a:1:0] ConnectionCompleted() (162.254.199.184:443, WebSocket) local address (192.168.1.153:52814)
+[2025-02-15 09:12:41] [Connecting, 4, 3] [a:1:0] Client thinks it can connect via: UDP - yes, TCP - yes, WebSocket:443 - yes, WebSocket:Non443 - yes
+[2025-02-15 09:12:41] [Connected, 4, 3] [a:1:0] Logging on [a:1:0]
+[2025-02-15 09:12:41] [Logging On, 4, 3] [a:1:0] RecvMsgClientLogOnResponse() : [a:1:4142234667] 'OK'
+[2025-02-15 09:12:41] [Logged On, 4, 3] [a:1:4142234667] RecvMsgClientLogOnResponse() : processing complete
+[2025-02-15 09:12:47] [Logged On, 4, 3] [a:1:4142234667] ResetVoiceRecording() (was recording: 0) (last get voice time: 1739628767 seconds ago)
+[2025-02-15 09:12:47] [Logged On, 4, 3] [a:1:4142234667] LogOff()
+[2025-02-15 09:12:47] [Logging Off, 4, 3] [a:1:4142234667] AsyncDisconnect( bDontWaitOnTCPShutdown: true )
+[2025-02-15 09:12:47] [Logging Off, 0, 3] [a:1:4142234667] Log session ended
