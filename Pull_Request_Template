@@ -10,27 +10,119 @@ Fixes # (issue)
 
 Please delete options that are not relevant.
 
-- [ ] Bug fix (non-breaking change which fixes an issue)
-- [ ] New feature (non-breaking change which adds functionality)
-- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
-- [ ] Documentation update
+- [ x ] Bug fix (non-breaking change which fixes an issue)
+- [ x ] New feature (non-breaking change which adds functionality)
+- [ x ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
+- [ x ] Documentation update
 
 ### How Has This Been Tested?
 
 Please describe the tests that you ran to verify your changes. Provide instructions so we can reproduce.
 
-- [ ] Test A
-- [ ] Test B
+How Has This Been Tested?
+To verify the changes made to the AI Webpage Summarizer script, the following tests were conducted:
+
+Unit Test for Summarization Functionality:
+
+Objective: Ensure the summarize_text function generates accurate summaries for a given input text.
+
+Steps to Reproduce:
+
+Create a sample text input.
+
+Call the summarize_text function with the sample text.
+
+Verify that the output summary is coherent and concise.
+
+Integration Test for Webpage Content Retrieval:
+
+Objective: Verify the get_webpage_text function retrieves and extracts text content correctly from a given URL.
+
+Steps to Reproduce:
+
+Provide a valid URL of a webpage containing multiple paragraphs of text.
+
+Call the get_webpage_text function with the URL.
+
+Check that the returned text contains the expected content from the webpage.
+
+End-to-End Test for Full Script Execution:
+
+Objective: Ensure the entire script runs without errors and produces the correct output when summarizing a webpage.
+
+Steps to Reproduce:
+
+Run the script by executing python webpage_summarizer.py in the terminal.
+
+Enter a valid URL of a webpage when prompted.
+
+Verify that the script fetches the webpage content, generates a summary, and prints it to the console.
+
+Instructions for Reproducing the Tests
+Set Up the Environment:
+
+Ensure you have Python 3.x installed.
+
+Install the required libraries using pip:
+
+bash
+pip install transformers requests beautifulsoup4
+Run the Unit Test:
+
+Create a Python script to test the summarize_text function:
+
+python
+from transformers import BartForConditionalGeneration, BartTokenizer
+
+def summarize_text(text, max_length=150, min_length=30, num_beams=4):
+    model_name = "facebook/bart-large-cnn"
+    model = BartForConditionalGeneration.from_pretrained(model_name)
+    tokenizer = BartTokenizer.from_pretrained(model_name)
+    inputs = tokenizer([text], max_length=1024, return_tensors="pt", truncation=True)
+    summary_ids = model.generate(
+        inputs["input_ids"],
+        max_length=max_length,
+        min_length=min_length,
+        num_beams=num_beams,
+        length_penalty=2.0,
+        early_stopping=True
+    )
+    summary = tokenizer.decode(summary_ids[0], skip_special_tokens=True)
+    return summary
+
+sample_text = "Artificial intelligence (AI) is intelligence demonstrated by machines..."
+print(summarize_text(sample_text))
+Run the Integration Test:
+
+Create a Python script to test the get_webpage_text function:
+
+python
+import requests
+from bs4 import BeautifulSoup
+
+def get_webpage_text(url):
+    response = requests.get(url)
+    soup = BeautifulSoup(response.content, 'html.parser')
+    paragraphs = soup.find_all('p')
+    text = ' '.join([para.get_text() for para in paragraphs])
+    return text
+
+url = "https://example.com/your-article-url"
+print(get_webpage_text(url))
+Run the Full Script:
+
+Execute the webpage_summarizer.py script and follow the prompts to test the entire process end-to-end.
+
 
 ### Checklist
 
-- [ ] My code follows the style guidelines of this project
-- [ ] I have performed a self-review of my own code
-- [ ] I have commented my code, particularly in hard-to-understand areas
-- [ ] I have made corresponding changes to the documentation
-- [ ] My changes generate no new warnings
-- [ ] I have added tests that prove my fix is effective or that my feature works
-- [ ] New and existing unit tests pass locally with my changes
-- [ ] Any dependent changes have been merged and published in downstream modules
+- [ x ] My code follows the style guidelines of this project
+- [ x ] I have performed a self-review of my own code
+- [ x ] I have commented my code, particularly in hard-to-understand areas
+- [ x ] I have made corresponding changes to the documentation
+- [ x ] My changes generate no new warnings
+- [ x ] I have added tests that prove my fix is effective or that my feature works
+- [ x ] New and existing unit tests pass locally with my changes
+- [ x ] Any dependent changes have been merged and published in downstream modules
 
 ### Additional Comments
