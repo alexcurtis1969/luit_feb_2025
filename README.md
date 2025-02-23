@@ -1,23 +1,22 @@
-# luit_feb_2025
-# Random Name Generator for EC2 Instances
+# AI Webpage Summarizer
 
-## Description
-This Python script generates random names based on a user’s input. The user provides their name, selects a department from a list, and specifies how many EC2 instance names to generate. The generated names follow a specific format and are saved in a CSV file.
+This project provides a Python script that utilizes the Hugging Face Transformers library to summarize the content of any webpage using a pre-trained BART model.
 
 ## Features
-- Generates random first and last names from predefined lists.
-- Combines the user’s name and department with randomly generated characters and numbers to form unique names.
-- Outputs the generated names to the console and saves them to a CSV file.
 
-## Prerequisites
-This script is written in Python 3.x and requires no external dependencies.
+- Summarizes the content of a given webpage URL.
+- Uses the `facebook/bart-large-cnn` pre-trained model for summarization.
+- Retrieves and processes webpage content using `requests` and `BeautifulSoup` libraries.
 
-## Setup and Usage
+## Requirements
 
-### 1. Clone or Download the Repository
-To get started, clone or download the repository containing the Python script.
+To run this script, you need to have Python installed along with the following libraries:
+
+- transformers
+- requests
+- beautifulsoup4
+
+You can install these libraries using `pip`:
 
 ```bash
-git clone https://github.com/yourusername/random-name-generator.git
-cd random-name-generator
-
+pip install transformers requests beautifulsoup4
