@@ -37,7 +37,7 @@ def preprocess_data(data):
     return processed_data
 
 if __name__ == "__main__":
-    from sample_data import data  # Importing sample data
+    from AI_ML_sample_data import data  # Importing sample data
     processed_data = preprocess_data(data)
     print(processed_data)  # Print the processed data
 
