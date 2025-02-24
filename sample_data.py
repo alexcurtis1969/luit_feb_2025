@@ -1,6 +1,7 @@
 """Sample data for testing the data preprocessing pipeline.
 This dataset includes numerical and categorical features with some missing values."""
 
+
 import pandas as pd
 
 # Sample data for testing

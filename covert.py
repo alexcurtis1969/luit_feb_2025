@@ -1,8 +1,6 @@
-"""
-This script demonstrates how to preprocess data using the pandas and scikit-learn libraries.
+"""This script demonstrates how to preprocess data using the pandas and scikit-learn libraries.
 It includes steps to handle missing values, scale numerical features, and encode categorical variables.
-The sample data includes age, income, and gender columns.
-"""
+The sample data includes age, income, and gender columns."""
 
 import pandas as pd  # Importing the pandas library for data manipulation
 from sklearn.impute import SimpleImputer  # Importing SimpleImputer for handling missing values

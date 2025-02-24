@@ -2,6 +2,7 @@
 It includes steps to handle missing values, scale numerical features, and encode categorical variables.
 The sample data includes age, income, and gender columns."""
 
+
 import pandas as pd  # Importing the pandas library for data manipulation
 from sklearn.impute import SimpleImputer  # Importing SimpleImputer for handling missing values
 from sklearn.preprocessing import StandardScaler, OneHotEncoder  # Importing StandardScaler and OneHotEncoder for scaling and encoding
