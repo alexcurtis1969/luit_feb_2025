@@ -1,4 +1,0 @@
-
-
-[2025-02-15 09:12:37] Client version: 1738027521
-[2025-02-15 09:12:37] Initialized system dock manager: default
