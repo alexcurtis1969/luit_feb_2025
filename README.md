@@ -1,22 +1,17 @@
-# AI Webpage Summarizer
+# Data Preprocessing Pipeline
 
-This project provides a Python script that utilizes the Hugging Face Transformers library to summarize the content of any webpage using a pre-trained BART model.
+## Description
 
-## Features
+This project demonstrates how to preprocess data using the pandas and scikit-learn libraries. It includes steps to handle missing values, scale numerical features, and encode categorical variables. The sample data includes age, income, and gender columns.
 
-- Summarizes the content of a given webpage URL.
-- Uses the `facebook/bart-large-cnn` pre-trained model for summarization.
-- Retrieves and processes webpage content using `requests` and `BeautifulSoup` libraries.
+## Prerequisites
 
-## Requirements
+- Python 3.x
+- pandas
+- scikit-learn
 
-To run this script, you need to have Python installed along with the following libraries:
+## Installation
 
-- transformers
-- requests
-- beautifulsoup4
-
-You can install these libraries using `pip`:
-
-```bash
-pip install transformers requests beautifulsoup4
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/data-preprocessing-pipeline.git
