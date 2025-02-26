@@ -1,18 +1,16 @@
-# AI ML Data Preprocessing Pipeline
+# AWS Lambda Functions with Boto3
 
-## Description
-
-This project demonstrates how to preprocess data using the pandas and scikit-learn libraries. It includes steps to handle missing values, scale numerical features, and encode categorical variables. The sample data includes age, income, and gender columns.
+This repository contains several Python scripts to manage AWS Lambda functions using the Boto3 library. The scripts include functionality to list Lambda functions, create a Lambda function, and trigger a Lambda function asynchronously.
 
 ## Prerequisites
 
-- Python 3.x
-- pandas
-- scikit-learn
+Before running the scripts, ensure that you have the following:
 
-## Installation
-
-
-1. Clone the repository:
+1. **AWS Account**: You need an AWS account to create and manage Lambda functions.
+2. **AWS CLI**: Install and configure the AWS CLI with the necessary credentials.
+3. **Boto3 Library**: Install the Boto3 library using the following command:
    ```bash
-   git clone https://github.com/your-username/data-preprocessing-pipeline.git
+   pip install boto3
+   pip install requests
+   aws configure
+
