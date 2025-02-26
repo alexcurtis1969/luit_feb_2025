@@ -11,7 +11,7 @@ Before running the scripts, ensure that you have the following:
 3. **Boto3 Library**: Install the Boto3 library using the following command:
    ```bash
    pip install boto3
-   pip install requests
-   aws configure
+   pip install requests  # Required for making HTTP requests to AWS services
+   aws configure #Maybe needed to configure your AWS account, if not done previously
 
 
