@@ -14,3 +14,4 @@ Before running the scripts, ensure that you have the following:
    pip install requests
    aws configure
 
+
