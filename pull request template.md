@@ -2,79 +2,21 @@
 
 ## Description
 
-Please include a summary of the changes and the related issue. Please also include relevant motivation and context. List any dependencies that are required for this change.
+This pull request adds a Python script to predict house prices using a **Linear Regression** model. The script loads data from a CSV file, preprocesses the features, splits the dataset into training and testing sets, trains a linear regression model, evaluates the model's performance, and visualizes the results. Additionally, it predicts the price of a new house based on input features.
 
-Fixes # (issue)
+## Features Added
 
-## Type of Change
-
-Please delete options that are not relevant.
-
-
-- [ ] Bug fix (non-breaking change which fixes an issue)
-- [ ] New feature (non-breaking change which adds functionality)
-- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
-- [ ] Documentation update
-
-## Checklist
-
-- [ ] My code follows the style guidelines of this project
-- [ ] I have performed a self-review of my own code
-- [ ] I have commented my code, particularly in hard-to-understand areas
-- [ ] I have made corresponding changes to the documentation
-- [ ] My changes generate no new warnings
-- [ ] I have added tests that prove my fix is effective or that my feature works
-- [ ] New and existing unit tests pass locally with my changes
-- [ ] Any dependent changes have been merged and published in downstream modules
-
-- [ ✔] Bug fix (non-breaking change which fixes an issue)
-- [ ✔] New feature (non-breaking change which adds functionality)
-- [ ✔] Breaking change (fix or feature that would cause existing functionality to not work as expected)
-- [ ✔] Documentation update
-
-## Checklist
-
-- [ ✔] My code follows the style guidelines of this project
-- [ ✔] I have performed a self-review of my own code
-- [ ✔] I have commented my code, particularly in hard-to-understand areas
-- [ ✔] I have made corresponding changes to the documentation
-- [ ✔] My changes generate no new warnings
-- [ ✔] I have added tests that prove my fix is effective or that my feature works
-- [ ✔] New and existing unit tests pass locally with my changes
-
-- [ ✔] Any dependent changes have been merged and published in downstream modules
-
+- **Data Loading**: Loads house price data from a CSV file.
+- **Preprocessing**: Extracts features (number of rooms, size) and target variable (price).
+- **Model Training**: Uses **Linear Regression** to train the model.
+- **Model Evaluation**: Evaluates the model using metrics like MSE, RMSE, and R².
+- **Visualization**: Plots actual data and regression line for better visualization.
+- **Prediction**: Allows predicting house prices for new input data.
 
 ## How to Test
 
-Please describe the tests that you ran to verify your changes. Provide instructions so that the reviewer can reproduce them. Please also list any relevant details for your test configuration.
+1. Clone this repository to your local machine.
+2. Install required dependencies:
 
-- [ ] Test A
-
-
-
-
-
-
-- [ ] Test B
-
-
-
-
-
-
- - [ ] Test C
-
-
-
-
-
-
-
-## Screenshots
-
-Please add screenshots of the relevant changes (if applicable).
-
-## Additional Context
-
-Add any other context or comments about the pull request here.
+   ```bash
+   pip install numpy pandas matplotlib scikit-learn
