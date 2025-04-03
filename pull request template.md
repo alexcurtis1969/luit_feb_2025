@@ -2,46 +2,44 @@
 
 ## Description
 
-Please include a summary of the changes and the motivation behind them. List any dependencies that are required for this change.
+Please include a summary of the changes and what functionality is being added or modified in the pull request. Include any relevant context, such as fixes, improvements, or new features.
 
+### Changes:
+1. **`gather_file_details.py`**:
+   - Added a function to gather file details recursively from a given directory and its subdirectories.
+   - Includes file name, size, type (file or directory), and absolute path.
 
-- Added preprocessing script to handle missing values, scale numerical features, and encode categorical variables using pandas and scikit-learn.
-- Included sample data script for testing the preprocessing pipeline.
+2. **`file_info.py`**:
+   - Added functionality to gather file details for the current working directory only (non-recursive).
+   - Includes file name, size, type (file or directory), and absolute path.
 
-## Related Issue
+## Type of Change
 
-Please link to the related issue if applicable. Example: Fixes # (issue)
+Please select the type of change being made:
+
+- [ ] Bug fix (non-breaking change which fixes an issue)
+- [ ] New feature (non-breaking change which adds functionality)
+- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
+- [ ] Documentation update
 
 ## How Has This Been Tested?
 
-Please describe the tests that you ran to verify your changes. Provide instructions so we can reproduce. 
-
-- Tested the preprocessing script with sample data to ensure correct handling of missing values, scaling, and encoding.
-- Verified the output by converting the processed data to a DataFrame and displaying the results.
-
-## Screenshots (if applicable):
-
-Provide screenshots if the pull request changes the UI or includes visual changes.
-
-## Types of Changes
-
-What types of changes does your code introduce? Put an `x` in all the boxes that apply:
-- [ ✔️] Bug fix (non-breaking change which fixes an issue)
-- [ ✔️] New feature (non-breaking change which adds functionality)
-- [ ✔️] Breaking change (fix or feature that would cause existing functionality to not work as expected)
-- [ ✔️] Documentation update
+- [ ] I have tested the functionality locally by running both scripts in different directories to verify the expected output.
+- [ ] Both scripts were executed on different paths, including recursive directory scans for `gather_file_details.py` and non-recursive for `file_info.py`.
+- [ ] Outputs were verified for both files and directories, ensuring that all information was correctly gathered.
 
 ## Checklist
 
-Go over all the following points, and put an `x` in all the boxes that apply:
-- [ ✔️] My code follows the style guidelines of this project
-- [✔️] I have performed a self-review of my code
-- [ ✔️] I have commented my code, particularly in hard-to-understand areas
-- [ ✔️] I have made corresponding changes to the documentation
-- [ ✔️] My changes generate no new warnings
-- [ ✔️] I have added tests that prove my fix is effective or that my feature works
-- [ ✔️] New and existing unit tests pass locally with my changes
+- [ ] I have reviewed the code and tested it on my local machine.
+- [ ] I have updated the `README.md` with instructions or clarifications related to the changes.
+- [ ] I have added inline comments to explain the logic of the code.
+- [ ] My changes require updates to the documentation, and I have updated the documentation accordingly.
+- [ ] I have ensured that all new functionality is covered by tests.
 
-## Additional Comments
+## Additional Notes
 
-If you have any additional comments regarding the pull request, please include them here.
+Please provide any additional information or context here that might be helpful for the reviewer (e.g., special considerations, edge cases, etc.).
+
+---
+
+**End of Pull Request**
