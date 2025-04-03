@@ -2,44 +2,42 @@
 
 ## Description
 
-Please include a summary of the changes and what functionality is being added or modified in the pull request. Include any relevant context, such as fixes, improvements, or new features.
+Please include a summary of the change and which issue is resolved. Please also include relevant motivation and context. List any dependencies that are required for this change.
 
-### Changes:
-1. **`gather_file_details.py`**:
-   - Added a function to gather file details recursively from a given directory and its subdirectories.
-   - Includes file name, size, type (file or directory), and absolute path.
+Fixes #(issue number - if applicable)
 
-2. **`file_info.py`**:
-   - Added functionality to gather file details for the current working directory only (non-recursive).
-   - Includes file name, size, type (file or directory), and absolute path.
+## Type of change
 
-## Type of Change
-
-Please select the type of change being made:
+Please delete options that are not relevant.
 
 - [ ] Bug fix (non-breaking change which fixes an issue)
 - [ ] New feature (non-breaking change which adds functionality)
 - [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
-- [ ] Documentation update
+- [ ] This change requires a documentation update
 
 ## How Has This Been Tested?
 
-- [ ] I have tested the functionality locally by running both scripts in different directories to verify the expected output.
-- [ ] Both scripts were executed on different paths, including recursive directory scans for `gather_file_details.py` and non-recursive for `file_info.py`.
-- [ ] Outputs were verified for both files and directories, ensuring that all information was correctly gathered.
+Please describe the tests that you ran to verify your changes. Provide instructions so we can reproduce. Please also list any relevant details for your test configuration
 
-## Checklist
+- [ ] Test A
+- [ ] Test B
 
-- [ ] I have reviewed the code and tested it on my local machine.
-- [ ] I have updated the `README.md` with instructions or clarifications related to the changes.
-- [ ] I have added inline comments to explain the logic of the code.
-- [ ] My changes require updates to the documentation, and I have updated the documentation accordingly.
-- [ ] I have ensured that all new functionality is covered by tests.
+**Test Configuration**:
+* OS:
+* Python version:
+* Boto3 version:
 
-## Additional Notes
+## Checklist:
 
-Please provide any additional information or context here that might be helpful for the reviewer (e.g., special considerations, edge cases, etc.).
+- [ ] My code follows the style guidelines of this project
+- [ ] I have performed a self-review of my own code
+- [ ] I have commented my code, particularly in hard-to-understand areas
+- [ ] I have made corresponding changes to the documentation
+- [ ] My changes generate no new warnings
+- [ ] I have added tests that prove my fix is effective or that my feature works
+- [ ] New and existing unit tests pass locally with my changes
+- [ ] Any dependent changes have been merged and published in downstream modules.
 
----
+## Additional Information (Optional)
 
-**End of Pull Request**
+Any other relevant information that might be helpful for reviewers.
