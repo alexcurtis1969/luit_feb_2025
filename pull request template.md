@@ -1,43 +1,41 @@
-# Pull Request Template
+# Pull Request Template: Static Website CI/CD Pipeline with AWS CodePipeline
 
 ## Description
 
-Please include a summary of the change and which issue is resolved. Please also include relevant motivation and context. List any dependencies that are required for this change.
+This pull request introduces a CI/CD pipeline for deploying a static website hosted on Amazon S3, using AWS CodePipeline and GitHub. It automates the process of updating the website whenever changes are pushed to the main branch of the specified GitHub repository.
 
-Fixes #(issue number - if applicable)
+This includes:
+
+* Creation of an S3 bucket configured for static website hosting.
+* Setup of an AWS CodePipeline to pull source code from GitHub and deploy it to S3.
+* Use of environment variables for sensitive information (GitHub OAuth token, AWS Account ID).
+* A basic `index.html` file for testing the deployment.
+
+Fixes: N/A (New Feature)
 
 ## Type of change
 
-Please delete options that are not relevant.
-
-- [ ] Bug fix (non-breaking change which fixes an issue)
-- [ ] New feature (non-breaking change which adds functionality)
-- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
-- [ ] This change requires a documentation update
+- [x] New feature (non-breaking change which adds functionality)
 
 ## How Has This Been Tested?
 
-Please describe the tests that you ran to verify your changes. Provide instructions so we can reproduce. Please also list any relevant details for your test configuration
-
-- [ ] Test A
-- [ ] Test B
-
-**Test Configuration**:
-* OS:
-* Python version:
-* Boto3 version:
+- [x] Manual tests: Verified that the S3 bucket is created correctly, the CodePipeline is set up and working, and that changes pushed to the GitHub repository are reflected on the deployed website.
+- [x] Manual tests: Verified that the environment variables are correctly loaded and used by the script.
 
 ## Checklist:
 
-- [ ] My code follows the style guidelines of this project
-- [ ] I have performed a self-review of my own code
-- [ ] I have commented my code, particularly in hard-to-understand areas
-- [ ] I have made corresponding changes to the documentation
-- [ ] My changes generate no new warnings
-- [ ] I have added tests that prove my fix is effective or that my feature works
-- [ ] New and existing unit tests pass locally with my changes
-- [ ] Any dependent changes have been merged and published in downstream modules.
+- [x] My code follows the style guidelines of this project (PEP 8 where applicable).
+- [x] I have performed a self-review of my own code.
+- [x] I have commented my code, particularly in hard-to-understand areas.
+- [x] I have added a `README.md` file explaining the setup and usage of the code.
+- [x] My changes generate no new warnings.
+- [x] New and existing unit tests pass locally with my changes (N/A - manual testing was used).
+- [x] Any dependent changes have been merged and published in downstream modules (N/A).
 
-## Additional Information (Optional)
+## Additional Notes
 
-Any other relevant information that might be helpful for reviewers.
+* Ensure that the `.env` file is created and contains the correct environment variables.
+* The IAM role used for CodePipeline needs appropriate permissions to access S3 and GitHub.
+* The `index.html` file is a basic example; you can replace it with your actual website content.
+* For production environments, consider more robust error handling and security measures (e.g., AWS Secrets Manager for environment variables).
+* The S3 Bucket permissions should be reviewed and tightened.

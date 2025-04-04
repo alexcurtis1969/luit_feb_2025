@@ -1,109 +1,77 @@
-# Joomla Deployment on AWS with RDS PostgreSQL
+# Static Website CI/CD Pipeline with AWS CodePipeline
 
-This project automates the deployment of a Joomla website on AWS, utilizing EC2 for the application server and RDS PostgreSQL for the database.
-
-## Architecture
-
-The architecture consists of a two-tier setup:
-
-* **Web Tier:** An EC2 instance running Apache, PHP, and Joomla.
-* **Database Tier:** An RDS PostgreSQL instance for data storage.
+This project automates the deployment of a static website hosted on Amazon S3 using AWS CodePipeline and GitHub.
 
 ## Prerequisites
 
-* An AWS account with appropriate permissions.
-* Boto3 library installed (`pip install boto3`).
-* An EC2 Key Pair (`LUIT_Key_01` in this script) in the `us-east-1` region.
-* Basic understanding of AWS services (VPC, EC2, RDS, Security Groups, Route Tables, etc.).
+* AWS Account with appropriate permissions.
+* GitHub Account with a repository containing your static website files (e.g., `index.html`).
+* Python 3.6+
+* Boto3 library (`pip install boto3`)
+* python-dotenv library (`pip install python-dotenv`)
 
-## Configuration
-
-The script uses the following configuration variables:
-
-* `AWS_REGION`: AWS region for deployment (default: `us-east-1`).
-* `VPC_CIDR`: CIDR block for the VPC.
-* `PUBLIC_SUBNET1_CIDR`, `PUBLIC_SUBNET2_CIDR`: CIDR blocks for public subnets.
-* `PRIVATE_SUBNET1_CIDR`, `PRIVATE_SUBNET2_CIDR`, `PRIVATE_SUBNET3_CIDR`: CIDR blocks for private subnets.
-* `KEY_NAME`: Name of the EC2 key pair.
-* `INSTANCE_TYPE`: EC2 instance type.
-* `RDS_INSTANCE_TYPE`: RDS instance type.
-* `RDS_INSTANCE_IDENTIFIER`: RDS instance identifier.
-* `DB_NAME`: RDS database name.
-* `DB_USER`: RDS database user.
-* `DB_ENGINE`: RDS database engine.
-* `DB_ENGINE_VERSION`: RDS database engine version.
-* `JOOMLA_SECURITY_GROUP_NAME`, `RDS_SECURITY_GROUP_NAME`: Security group names.
-* `JOOMLA_AMI`: AMI for the Joomla EC2 instance.
-* `MYSQL_PORT`: PostgreSQL port.
-* `VPC_NAME`, `IGW_NAME`, `PUBLIC_ROUTE_TABLE_NAME`, `PRIVATE_ROUTE_TABLE_NAME`, `PUBLIC_SUBNET1_NAME`, `PUBLIC_SUBNET2_NAME`, `PRIVATE_SUBNET1_NAME`, `PRIVATE_SUBNET2_NAME`, `PRIVATE_SUBNET3_NAME`, `EC2_INSTANCE_NAME`, `DB_SUBNET_GROUP_NAME`: Resource names.
-
-## Usage
+## Setup
 
 1.  **Clone the Repository:**
     ```bash
-    git clone <repository_url>
-    cd <repository_directory>
+    git clone <YOUR_GITHUB_REPO_URL>
+    cd <PROJECT_DIRECTORY>
     ```
 
-2.  **Install Boto3:**
+2.  **Create `.env` File:**
+    * Create a `.env` file in the project's root directory.
+    * Add the following environment variables:
+
+        ```
+        GITHUB_REPO_URL=<YOUR_GITHUB_REPO_URL>
+        GITHUB_OAUTH_TOKEN=<YOUR_GITHUB_OAUTH_TOKEN>
+        AWS_ACCOUNT_ID=<YOUR_AWS_ACCOUNT_ID>
+        ```
+
+    * Replace the placeholders with your actual values.
+    * **Important:** Do not commit the `.env` file to your repository.
+
+3.  **Create an IAM Role for CodePipeline:**
+    * Go to the AWS IAM console.
+    * Create a new role.
+    * Select "AWS service" and "CodePipeline" as the service.
+    * Attach the necessary policies:
+        * Your custom codepipeline policy (if created)
+        * `AWSCodePipelineServiceRole`
+        * S3 permissions (e.g., `AmazonS3FullAccess` or a more restrictive policy)
+        * Any other required AWS service permissions.
+    * Note the Role ARN.
+
+4.  **Update `CDA06.py`:**
+    * Replace the placeholder `roleArn` in the `create_pipeline` function with the IAM Role ARN you created.
+    * Verify the `REGION` variable.
+
+5.  **Run the Script:**
     ```bash
-    pip install boto3
+    python CDA06.py
     ```
 
-3.  **Run the Script:**
-    ```bash
-    python <script_name>.py
-    ```
+## Code Explanation
 
-4.  **Follow the Output:**
-    * The script will output the RDS database password and the public IP address of the EC2 instance.
-    * SSH into the EC2 instance to install Apache, PHP, PostgreSQL client, and Joomla.
-    * Use the provided RDS credentials during the Joomla installation.
-
-5.  **Access Joomla:**
-    * Open your web browser and navigate to the EC2 instance's public IP address.
-
-6.  **Cleanup:**
-    * The script includes a `delete_all_resources()` function to delete all created AWS resources.
-
-## Script Functionality
-
-The script performs the following actions:
-
-1.  **Networking Setup:**
-    * Creates a VPC, Internet Gateway, public and private subnets, and route tables.
-
-2.  **Web Tier Setup:**
-    * Creates a security group for the EC2 instance.
-    * Launches an EC2 instance with the specified AMI and instance type.
-
-3.  **Database Tier Setup:**
-    * Creates a security group for the RDS instance.
-    * Creates an RDS subnet group.
-    * Launches an RDS PostgreSQL instance.
-
-4.  **Output:**
-    * Prints the EC2 instance's public IP address and RDS database credentials.
-
-5.  **Manual Steps:**
-    * Provides instructions for manually installing Joomla on the EC2 instance.
-
-6.  **Cleanup Function:**
-    * `delete_all_resources()` function will delete everything created by the script.
-
-## Benefits of Two-Tier Architecture
-
-* **Improved Security:** Isolates the database layer from public access.
-* **Enhanced Scalability:** Allows independent scaling of the web and database tiers.
-* **Better Performance:** Reduces network latency between the application and database.
+* **`CDA06.py`:**
+    * Uses Boto3 to create an S3 bucket configured for static website hosting.
+    * Creates an AWS CodePipeline that retrieves source code from GitHub and deploys it to the S3 bucket.
+    * Uses environment variables for sensitive information.
+* **`.env`:**
+    * Stores sensitive information like GitHub OAuth token and AWS account ID.
+* **`index.html`:**
+    * A sample HTML file for the static website.
 
 ## Important Notes
 
-* Ensure that the EC2 key pair specified in `KEY_NAME` exists in your AWS account.
-* The script deletes all resources before creating new ones.
-* Manual steps are required to install and configure Joomla on the EC2 instance.
-* Review the security group rules to ensure they meet your security requirements.
+* Ensure that the IAM role has the necessary permissions to access S3 and GitHub.
+* Replace the placeholders in the `.env` file and `CDA06.py` with your actual values.
+* The `index.html` file should be in the same directory as the `CDA06.py` script, or update the `HTML_FILE` variable accordingly.
+* For production environments, consider using a more secure method for managing environment variables (e.g., AWS Secrets Manager).
+* For S3 permissions, it is best to use a more restrictive policy than `AmazonS3FullAccess`.
 
-## Contributing
+## To Update the Website
 
-Feel free to contribute to this project by submitting pull requests or opening issues.
+1.  Make changes to your website files (e.g., `index.html`).
+2.  Commit and push the changes to your GitHub repository.
+3.  CodePipeline will automatically deploy the updated files to your S3 bucket.
